@@ -26,7 +26,7 @@ node('slave1') {
   echo "Build result is " + currentBuild.result
   if ( currentBuild.result == 'SUCCESS') {
    addBadge(icon: 'green.gif', text: 'Build Succeeded')
-   archiveArtifacts artifacts: 'generatedFile.txt', onlyIfSuccessful: true
+   archiveArtifacts artifacts: 'gradle.txt', onlyIfSuccessful: true
   }
   if (currentBuild.result == 'FAILURE') {
    addBadge(icon: 'red.gif', text: 'Build Failed')
