@@ -11,7 +11,7 @@ node('slave1') {
   }
   stage ('test')
   {
-      sh "${gradle4}/bin/gradle" test"
+      sh "${gradle4}/bin/gradle test"
   }
  } catch (ex) {
   currentBuild.result = "FAILURE"
