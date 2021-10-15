@@ -17,11 +17,11 @@ node('slave1') {
   currentBuild.result = "FAILURE"
   echo 'Error occured'
  }
- stage ('tests') {
+ /*stage ('tests') {
   tests = ["one" : { sh "test-data/int-test.shbuild/libs/oto-gradle-1.0.jar otoMato 'Hello Otomato!'"},
            "two" :{ sh "test-data/int-test.shbuild/libs/oto-gradle-1.0.jar otoMato 'Hello Sashok!'" },
            "three" :{ sh "test-data/int-test.shbuild/libs/oto-gradle-1.0.jar otoMato 'Hello Anton!'" },
-           }
+           }*/
  stage('post') {
   echo "Build result is " + currentBuild.result
   if ( currentBuild.result == 'SUCCESS') {
