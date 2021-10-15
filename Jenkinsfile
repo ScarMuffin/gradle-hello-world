@@ -7,7 +7,7 @@ node('slave1') {
   }
   stage ('build')
   {
-      sh "${gradle4}/bin/gradle build"
+      sh "${gradle4}/bin/gradle clean build"
   }
   stage ('test')
   {
