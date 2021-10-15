@@ -12,6 +12,7 @@ node('slave1') {
   stage ('test')
   {
       sh "${gradle4}/bin/gradle test"
+      junit 'build/test-results/junit-platform/*.xml'
   }
  } catch (ex) {
   currentBuild.result = "FAILURE"
@@ -27,7 +28,6 @@ node('slave1') {
   if ( currentBuild.result == 'SUCCESS') {
    addBadge(icon: 'green.gif', text: 'Build Succeeded')
    //archiveArtifacts artifacts: 'gradle.txt', onlyIfSuccessful: true
-   junit 'build/reports/**/*.xml'
   }
   if (currentBuild.result == 'FAILURE') {
    addBadge(icon: 'red.gif', text: 'Build Failed')
