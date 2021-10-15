@@ -19,9 +19,9 @@ node('slave1') {
   echo 'Error occured'
  }
  stage ('tests') {
-  tests = ["one" : { sh "test-data/int-test.shbuild/libs/oto-gradle-1.0.jar otoMato 'Hello Otomato!'"},
-           "two" :{ sh "test-data/int-test.shbuild/libs/oto-gradle-1.0.jar otoMato 'Hello Sashok!'" },
-           "three" :{ sh "test-data/int-test.shbuild/libs/oto-gradle-1.0.jar otoMato 'Hello Anton!'" }]
+  tests = ["one" : { sh "sh test-data/int-test.sh build/libs/oto-gradle-1.0.jar otoMato 'Hello Otomato!'"},
+           "two" :{ sh "sh test-data/int-test.sh build/libs/oto-gradle-1.0.jar otoMato 'Hello Sashok!'" },
+           "three" :{ sh "sh test-data/int-test.sh build/libs/oto-gradle-1.0.jar otoMato 'Hello Anton!'" }]
            parallel tests
            }
  stage('post') {
